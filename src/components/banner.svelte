@@ -4,14 +4,16 @@
 	import { randomNumberGenerator } from '../utils/randomNumber';
 	import { IMAGE_BASE_URL } from '../constants/movie';
 
-	let randomMovie = $movieData.netflixOriginals[randomNumberGenerator()];
+	let randomIndex = randomNumberGenerator();
+
+	let randomMovie = $movieData.netflixOriginals[randomIndex];
 </script>
 
 <div class=" flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12 ">
 	<div class=" absolute top-0 right-0 w-screen -z-10 ">
 		<img
 			class=" w-full object-cover h-[95vh] "
-			src={`${IMAGE_BASE_URL}${randomMovie.poster_path}`}
+			src={`${IMAGE_BASE_URL}${randomMovie?.poster_path}`}
 			alt=""
 		/>
 	</div>

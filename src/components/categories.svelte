@@ -8,13 +8,13 @@
 	let imageContainer;
 	let showLeftChevron = false;
 
-	const scrollLeft = (scrollDirection) => {
+	const scrollLeft = (e) => {
 		showLeftChevron = !showLeftChevron;
 
 		movies = [movies[movies.length - 1], ...movies.slice(0, movies.length - 1)];
 	};
 
-	const scrollRight = (scrollDirection) => {
+	const scrollRight = (e) => {
 		showLeftChevron = !showLeftChevron;
 
 		movies = [...movies.slice(1, movies.length), movies[0]];

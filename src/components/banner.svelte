@@ -5,8 +5,6 @@
 	import { IMAGE_BASE_URL } from '../constants/movie';
 
 	let randomMovie = $movieData.netflixOriginals[randomNumberGenerator()];
-
-	console.log(randomMovie);
 </script>
 
 <div class=" flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12 ">

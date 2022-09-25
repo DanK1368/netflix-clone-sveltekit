@@ -4,7 +4,7 @@
 
 @layer base {
 	body {
-		@apply bg-[#141414] text-white h-[140vh];
+		@apply bg-[#141414] text-white !scrollbar-track-transparent !scrollbar-thin !scrollbar-thumb-red-600;
 	}
 
 	header {
@@ -19,5 +19,18 @@
 
 	.customBannerBtn {
 		@apply flex items-center gap-x-2 rounded px-5 py-1.5 text-sm font-semibold transition hover:opacity-70 md:py-2.5 md:px-8 md:text-xl;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
+
+	.scrollbar-hide {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+
+	.customScrollbar {
+		scrollbar-color: red red;
 	}
 }

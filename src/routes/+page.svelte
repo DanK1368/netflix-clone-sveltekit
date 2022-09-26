@@ -22,7 +22,7 @@
 	<title>Netflix | Home</title>
 </svelte:head>
 
-<div class=" relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511]  ">
+<div class=" relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511]">
 	<main class=" relative p-4 lg:space-y-24 lg:pl-16 customScrollbar">
 		<Banner />
 		<section class="flex flex-col gap-7 md:gap-10 lg:gap-20">

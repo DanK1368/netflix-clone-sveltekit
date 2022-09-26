@@ -35,7 +35,5 @@ export function load() {
 		};
 	};
 
-	const movieData = fetchData();
-
-	return movieData;
+	return fetchData();
 }

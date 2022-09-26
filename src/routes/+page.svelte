@@ -15,7 +15,7 @@
 		romanceMovies,
 		topRated,
 		trendingNow
-	} = data;
+	} = $movieData;
 </script>
 
 <svelte:head>

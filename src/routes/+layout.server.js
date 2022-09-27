@@ -1,5 +1,5 @@
 import requests from '../utils/requests';
-/** @type {import('./$types').PageServerLoad} */
+/** @type {import('./$types').LayoutServerLoad} */
 
 export function load() {
 	const fetchData = async () => {

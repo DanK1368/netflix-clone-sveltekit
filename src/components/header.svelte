@@ -1,7 +1,20 @@
 <script>
+	import { supabase } from '../lib/supabaseClient';
+	import { goto } from '$app/navigation';
 	import 'iconify-icon';
 	import profileSvg from '../assets/profile.svg';
+
 	let scrollYPosition;
+
+	const handleLogout = async () => {
+		try {
+			const { error } = await supabase.auth.signOut();
+			alert('you logged out');
+			goto('/login');
+		} catch (error) {
+			console.log(error);
+		}
+	};
 </script>
 
 <svelte:window bind:scrollY={scrollYPosition} />
@@ -31,5 +44,13 @@
 		<a href="/account">
 			<img class=" rounded cursor-pointer " src={profileSvg} alt="" width={30} />
 		</a>
+		<button class=" flex items-center justify-center " on:click={handleLogout}>
+			<iconify-icon
+				width={20}
+				height={20}
+				class=" w-6 h-6 hover:text-red-600"
+				icon="ant-design:logout-outlined"
+			/>
+		</button>
 	</div>
 </header>

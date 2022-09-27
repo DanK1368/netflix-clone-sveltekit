@@ -1,6 +1,5 @@
 <script>
 	import LoginForm from '../../components/loginForm.svelte';
-	import backgroundImg from '../../assets/netflix-background.jpg';
 </script>
 
 <div

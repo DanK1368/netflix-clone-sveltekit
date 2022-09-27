@@ -27,6 +27,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@supabase/supabase-js": "^1.35.7",
 		"iconify-icon": "^1.0.0",
 		"svelte-preprocess": "^4.10.7"
 	}

@@ -12,5 +12,6 @@
 		src={`${IMAGE_PREVIEW_BASE_URL}${movie.backdrop_path || movie.poster_path}`}
 		alt={movie.title}
 		loading="lazy"
+		decoding="async"
 	/>
 </div>

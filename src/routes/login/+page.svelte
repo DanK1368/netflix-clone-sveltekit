@@ -5,5 +5,5 @@
 <div
 	class="min-h-screen grid place-content-center relative bg-[url('/src/assets/netflix-background.jpg')] bg-right-top bg-no-repeat bg-cover "
 >
-	<LoginForm title="Sign In" />
+	<LoginForm title="Sign In" text="New to Netflix?" url="/signup" />
 </div>

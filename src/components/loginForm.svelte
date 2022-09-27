@@ -3,6 +3,8 @@
 	import { goto } from '$app/navigation';
 
 	export let title;
+	export let text;
+	export let url;
 
 	let email = '';
 	let password = '';
@@ -62,6 +64,6 @@
 		<button class=" w-full bg-red-600 px-3 py-2 font-semibold " type="submit">{title}</button>
 	</form>
 	<p class=" text-stone-500 text-sm ">
-		New to Netflix? <a class=" text-white font-semibold " href="/">Sign Up Now</a>
+		{text} <a class=" text-white font-semibold " href={url}>Sign Up Now</a>
 	</p>
 </div>

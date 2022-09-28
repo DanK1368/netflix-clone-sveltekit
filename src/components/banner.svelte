@@ -1,28 +1,27 @@
 <script>
 	import 'iconify-icon';
-	import { movieData } from '../stores/movieStore';
+	import { movieData, bannerMovie } from '../stores/movieStore';
 	import { randomNumberGenerator } from '../utils/randomNumber';
 	import { IMAGE_BASE_URL } from '../constants/movie';
 
 	let randomIndex = randomNumberGenerator();
-
-	let randomMovie = $movieData.netflixOriginals[randomIndex];
+	bannerMovie.set($movieData.netflixOriginals[randomIndex]);
 </script>
 
 <div class=" flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12 ">
 	<div class=" absolute top-0 right-0 w-screen -z-10 ">
 		<img
 			class=" w-full object-cover h-[95vh] "
-			src={`${IMAGE_BASE_URL}${randomMovie?.poster_path}`}
+			src={`${IMAGE_BASE_URL}${$bannerMovie?.poster_path}`}
 			alt=""
 		/>
 	</div>
 
 	<h1 class=" text-2xl font-extrabold md:text-4xl lg:text-6xl ">
-		{randomMovie?.name || randomMovie?.title || randomMovie?.original_name}
+		{$bannerMovie?.name || $bannerMovie?.title || $bannerMovie?.original_name}
 	</h1>
 	<p class=" max-w-xs text-xs md:max-w-lg md:text-lg lg:max-2xl lg:text-2xl ">
-		{randomMovie?.overview}
+		{$bannerMovie?.overview}
 	</p>
 
 	<div class=" flex gap-3  ">

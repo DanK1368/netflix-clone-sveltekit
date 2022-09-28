@@ -20,7 +20,6 @@
 					email: email,
 					password: password
 				});
-				console.log(user);
 				if (error) throw error;
 				showErrorMessage = false;
 				if (await user) goto('/');
@@ -52,7 +51,7 @@
 	};
 </script>
 
-<div class=" flex  justify-center flex-col gap-10 bg-black/75 px-10 py-20 ">
+<div class=" w-[300px] flex justify-center flex-col gap-10 bg-black/75 px-10 py-20 md:w-[500px] ">
 	<h1 class=" text-3xl ">{title}</h1>
 	<form
 		class=" flex flex-col items-center justify-center gap-3 "

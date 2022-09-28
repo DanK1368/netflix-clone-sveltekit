@@ -28,6 +28,8 @@
 	"type": "module",
 	"dependencies": {
 		"@supabase/supabase-js": "^1.35.7",
+		"@vime/core": "^5.3.3",
+		"@vime/svelte": "^5.3.3",
 		"iconify-icon": "^1.0.0",
 		"svelte-preprocess": "^4.10.7"
 	}

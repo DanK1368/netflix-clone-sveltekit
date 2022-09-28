@@ -37,7 +37,7 @@
 
 		<div class=" flex items-center gap-2 overflow-x-scroll md:gap-3 scrollbar-hide  ">
 			{#each movies as movie (movie.id)}
-				<ImagePreview {movie} />
+				<ImagePreview {movie} {movies} />
 			{/each}
 		</div>
 

@@ -3,24 +3,15 @@
 	import { movieData, bannerMovie, trailer, showVideoModal } from '../stores/movieStore';
 	import { randomNumberGenerator } from '../utils/randomNumber';
 	import { IMAGE_BASE_URL } from '../constants/movie';
+	import TrailerModal from './trailerModal.svelte';
 
-	let TMDB_API_KEY = import.meta.env.VITE_TMDB_KEY;
 	let randomIndex = randomNumberGenerator();
 	bannerMovie.set($movieData.netflixOriginals[randomIndex]);
-
-	const fetchSelectedMovieTrailerID = async () => {
-		showVideoModal.set(true);
-		const resp = await fetch(
-			`https://api.themoviedb.org/3/movie/${$bannerMovie.id}/videos?api_key=${TMDB_API_KEY}&language=en-US`
-		);
-
-		const data = await resp.json();
-		const [movieTrailer] = data.results
-			.filter((movie) => movie.type === 'Trailer')
-			.filter((result) => result.name === 'Official Trailer');
-		trailer.set(movieTrailer);
-	};
 </script>
+
+{#if !showVideoModal}
+	<TrailerModal />
+{/if}
 
 <div class=" flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12 ">
 	<div class=" absolute top-0 right-0 w-screen -z-10 ">
@@ -39,7 +30,7 @@
 	</p>
 
 	<div class=" flex gap-3  ">
-		<button class=" customBannerBtn bg-white text-black " on:click={fetchSelectedMovieTrailerID}>
+		<button class=" customBannerBtn bg-white text-black " on:click={() => showVideoModal.set(true)}>
 			<iconify-icon
 				class=" h-4 w-4 text-black md:h-7 md:w-7 "
 				icon="carbon:play-filled-alt"

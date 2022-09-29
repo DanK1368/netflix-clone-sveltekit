@@ -1,21 +1,38 @@
 <script>
-	import { trailer } from '../stores/movieStore';
+	import { bannerMovie, showVideoModal } from '../stores/movieStore';
 	import { Player, usePlayerStore, Youtube } from '@vime/svelte';
-	console.log($trailer);
-	// Obtain a ref if you need to call any methods.
-	let player;
 
-	/**
-	 * All player properties are available through the store. If you prefer, you could also pass
-	 * properties directly to the player and listen for events.
-	 */
+	let player;
 	const { paused } = usePlayerStore(() => player);
+	let TMDB_API_KEY = import.meta.env.VITE_TMDB_KEY;
+
+	async function fetchSelectedMovieTrailerID() {
+		const resp = await fetch(
+			`https://api.themoviedb.org/3/movie/${$bannerMovie.id}/videos?api_key=${TMDB_API_KEY}&language=en-US`
+		);
+
+		const data = await resp.json();
+		const [movieTrailer] = data.results
+			.filter((movie) => movie.type === 'Trailer')
+			.filter((result) => result.name === 'Official Trailer');
+
+		return movieTrailer?.key;
+	}
+
+	let trailerPromise = fetchSelectedMovieTrailerID;
 </script>
 
-<div
-	class=" absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] min-w-[90%] max-w-[700px] z-40 "
->
-	<Player bind:this={player}>
-		<Youtube videoId={$trailer?.key} />
-	</Player>
-</div>
+{#await trailerPromise()}
+	<p>Loading ....</p>
+{:then trailerKey}
+	<div
+		class=" absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] min-w-[90%] max-w-[700px] z-40 "
+	>
+		<button on:click={() => showVideoModal.set(false)}>close</button>
+		<Player bind:this={player} controls>
+			<Youtube videoId={trailerKey} />
+		</Player>
+	</div>
+{:catch error}
+	<p>Cannot display Movie</p>
+{/await}

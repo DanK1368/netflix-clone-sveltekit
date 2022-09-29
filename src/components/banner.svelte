@@ -1,6 +1,6 @@
 <script>
 	import 'iconify-icon';
-	import { movieData, bannerMovie, trailer, showVideoModal } from '../stores/movieStore';
+	import { movieData, bannerMovie, showVideoModal } from '../stores/movieStore';
 	import { randomNumberGenerator } from '../utils/randomNumber';
 	import { IMAGE_BASE_URL } from '../constants/movie';
 	import TrailerModal from './trailerModal.svelte';

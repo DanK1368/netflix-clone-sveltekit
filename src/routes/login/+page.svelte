@@ -1,4 +1,5 @@
 <script>
+	import TrailerModal from '../../components/trailerModal.svelte';
 	import LoginForm from '../../components/loginForm.svelte';
 </script>
 

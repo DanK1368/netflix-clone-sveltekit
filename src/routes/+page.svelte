@@ -1,12 +1,12 @@
 <script>
 	import { supabase } from '$lib/supabaseClient.js';
 	import Banner from '../components/banner.svelte';
-	import { movieData } from '../stores/movieStore';
+	import { movieData, showVideoModal } from '../stores/movieStore';
 	import Categories from '../components/categories.svelte';
 	import { user } from '../stores/sessionStore';
+	import TrailerModal from '../components/trailerModal.svelte';
 
 	user.set(supabase.auth.user());
-
 	const {
 		actionMovies,
 		comedyMovies,
@@ -24,6 +24,10 @@
 </svelte:head>
 
 {#if $user}
+	{#if $showVideoModal}
+		<TrailerModal />
+	{/if}
+
 	<div class=" relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511]">
 		<main class=" relative p-4 lg:space-y-24 lg:pl-16 customScrollbar">
 			<Banner />

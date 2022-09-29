@@ -1,6 +1,7 @@
 <script>
 	import { supabase } from '../lib/supabaseClient';
 	import { goto } from '$app/navigation';
+	import { user } from '../stores/sessionStore';
 	import 'iconify-icon';
 	import profileSvg from '../assets/profile.svg';
 
@@ -28,29 +29,34 @@
 			height={100}
 			class="object-contain cursor-pointer"
 		/>
-		<ul class=" hidden space-x-4 md:flex ">
-			<li class="headerLink">Home</li>
-			<li class="headerLink">TV Shows</li>
-			<li class="headerLink">Movies</li>
-			<li class="headerLink">New & Popular</li>
-			<li class="headerLink">My List</li>
-		</ul>
+
+		{#if $user}
+			<ul class=" hidden space-x-4 md:flex ">
+				<li class="headerLink">Home</li>
+				<li class="headerLink">TV Shows</li>
+				<li class="headerLink">Movies</li>
+				<li class="headerLink">New & Popular</li>
+				<li class="headerLink">My List</li>
+			</ul>
+		{/if}
 	</div>
 
-	<div class=" flex items-center space-x-4 text-sm font-light ">
-		<iconify-icon width={20} height={20} class=" hidden w-6 h-6 sm:inline" icon="charm:search" />
-		<p class=" hidden lg:inline ">Kids</p>
-		<iconify-icon width={20} height={20} class=" h-6 w-6 " icon="bx:bell" />
-		<a href="/account">
-			<img class=" rounded cursor-pointer " src={profileSvg} alt="" width={30} />
-		</a>
-		<button class=" flex items-center justify-center " on:click={handleLogout}>
-			<iconify-icon
-				width={20}
-				height={20}
-				class=" w-6 h-6 hover:text-red-600"
-				icon="ant-design:logout-outlined"
-			/>
-		</button>
-	</div>
+	{#if $user}
+		<div class=" flex items-center space-x-4 text-sm font-light ">
+			<iconify-icon width={20} height={20} class=" hidden w-6 h-6 sm:inline" icon="charm:search" />
+			<p class=" hidden lg:inline ">Kids</p>
+			<iconify-icon width={20} height={20} class=" h-6 w-6 " icon="bx:bell" />
+			<a href="/account">
+				<img class=" rounded cursor-pointer " src={profileSvg} alt="" width={30} />
+			</a>
+			<button class=" flex items-center justify-center " on:click={handleLogout}>
+				<iconify-icon
+					width={20}
+					height={20}
+					class=" w-6 h-6 hover:text-red-600"
+					icon="ant-design:logout-outlined"
+				/>
+			</button>
+		</div>
+	{/if}
 </header>

@@ -1,5 +1,5 @@
 <script>
-	import { bannerMovie, movieData } from '../stores/movieStore';
+	import { bannerMovie } from '../stores/movieStore';
 	import { IMAGE_PREVIEW_BASE_URL } from '../constants/movie';
 
 	export let movie;

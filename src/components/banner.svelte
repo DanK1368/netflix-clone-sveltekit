@@ -9,7 +9,7 @@
 	bannerMovie.set($movieData.netflixOriginals[randomIndex]);
 </script>
 
-{#if !showVideoModal}
+{#if $showVideoModal}
 	<TrailerModal />
 {/if}
 

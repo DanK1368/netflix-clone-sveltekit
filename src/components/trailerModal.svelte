@@ -20,13 +20,14 @@
 	}
 
 	let trailerPromise = fetchSelectedMovieTrailerID;
+	console.log('hello');
 </script>
 
 {#await trailerPromise()}
 	<p>Loading ....</p>
 {:then trailerKey}
 	<div
-		class=" absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] min-w-[90%] max-w-[700px] z-40 "
+		class=" absolute left-1/2 top-[400px] translate-x-[-50%] translate-y-[-50%] min-w-[90%] max-w-[700px] z-40 "
 	>
 		<button on:click={() => showVideoModal.set(false)}>close</button>
 		<Player bind:this={player} controls>

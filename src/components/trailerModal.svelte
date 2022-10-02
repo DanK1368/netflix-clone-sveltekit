@@ -12,15 +12,12 @@
 		);
 
 		const data = await resp.json();
-		const [movieTrailer] = data.results
-			.filter((movie) => movie.type === 'Trailer')
-			.filter((result) => result.name === 'Official Trailer');
+		const [movieTrailer] = data.results.filter((movie) => movie.type === 'Trailer');
 
 		return movieTrailer?.key;
 	}
 
 	let trailerPromise = fetchSelectedMovieTrailerID;
-	console.log('hello');
 </script>
 
 {#await trailerPromise()}

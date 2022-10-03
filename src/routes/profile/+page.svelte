@@ -117,7 +117,7 @@
 							type="text"
 							id="first_name"
 							bind:value={first_name}
-							disabled
+							disabled={isDisabled}
 						/>
 					</div>
 					<div class=" flex flex-col justify-start ">
@@ -129,7 +129,7 @@
 							type="text"
 							id="last_name"
 							bind:value={last_name}
-							disabled
+							disabled={isDisabled}
 						/>
 					</div>
 				</div>
@@ -152,7 +152,7 @@
 						type="text"
 						id="phone_number"
 						bind:value={phone_number}
-						disabled
+						disabled={isDisabled}
 					/>
 				</div>
 				<div class=" flex items-center gap-5 ">
